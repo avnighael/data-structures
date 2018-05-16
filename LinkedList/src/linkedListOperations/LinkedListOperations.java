@@ -1,6 +1,6 @@
-package linkedListTraversal;
+package linkedListOperations;
 
-public class TraverseThreeNodes {
+public class LinkedListOperations {
 	private static Node head; //head of the list
 	
 	static class Node {
@@ -28,8 +28,8 @@ public class TraverseThreeNodes {
 	 * Creates linked list of 3 nodes
 	 * @return Linked list
 	 */	
-	public static TraverseThreeNodes createLlist() {
-		TraverseThreeNodes llist = new TraverseThreeNodes(); 
+	public static LinkedListOperations createLlist() {
+		LinkedListOperations llist = new LinkedListOperations(); 
 		
 		llist.setHead(new Node(1));
 		Node second = new Node(2);
@@ -193,7 +193,7 @@ public class TraverseThreeNodes {
 	 * Setter of head Node
 	 */
 	public static void setHead(Node head) {
-		TraverseThreeNodes.head = head;
+		LinkedListOperations.head = head;
 	}
 
 }

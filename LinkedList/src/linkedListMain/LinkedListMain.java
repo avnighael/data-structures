@@ -1,22 +1,22 @@
-package linkedListInsertion;
+package linkedListMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import linkedListTraversal.TraverseThreeNodes;
+import linkedListOperations.LinkedListOperations;
 
-public class Insertion {
+public class LinkedListMain {
 	
 
-	public Insertion() {
+	public LinkedListMain() {
 		
 	}
 	
 	
 	public static void main(String args[]) {
 		 Scanner sc = new Scanner( System.in );
-		TraverseThreeNodes llist = new TraverseThreeNodes();
-		TraverseThreeNodes linkedList = llist.createLlist();
+		LinkedListOperations llist = new LinkedListOperations();
+		LinkedListOperations linkedList = llist.createLlist();
 		int i = 0;
 		
 //		System.out.println("Welcome to play with Linked List");
@@ -69,8 +69,8 @@ public class Insertion {
 		ArrayList<Integer> list=new ArrayList<Integer>();//Creating arraylist  
 		list.add(7);
 		list.add(3);
-		TraverseThreeNodes llist2 = new TraverseThreeNodes();
-		TraverseThreeNodes linkedList2 = llist2.createLlist();
+		LinkedListOperations llist2 = new LinkedListOperations();
+		LinkedListOperations linkedList2 = llist2.createLlist();
 	}
 
 }
