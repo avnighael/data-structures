@@ -59,10 +59,12 @@ public class LinkedListMain {
 		linkedList.insertsAtEnd(5);
 		linkedList.InsertsAfter(3, 4);
 		linkedList.println();
-		linkedList.deleteFromBeginning();
-		linkedList.deleteFromEnd();
-		linkedList.deleteTheSpecified(2);
-		System.out.println("After deletion");
+//		linkedList.deleteFromBeginning();
+//		linkedList.deleteFromEnd();
+//		linkedList.deleteTheSpecified(2);
+//		System.out.println("After deletion");
+		linkedList.reverseIteratively();
+		System.out.println("After reversing iteratively");
 		linkedList.println();
 		
 		// Create n number of nodes in linked list, given an array

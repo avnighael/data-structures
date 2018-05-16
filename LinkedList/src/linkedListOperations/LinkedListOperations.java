@@ -161,6 +161,30 @@ public class LinkedListOperations {
 	}
 	
 	/**
+	 * Reverse the linkedlist iteratively
+	 */
+	public static void reverseIteratively() {
+		int length = getCount();
+		
+		if(head == null || length == 1) {
+			return;
+		}
+		
+		Node prev = null;
+		Node current = head;
+		Node next = null;
+		
+		while(current != null) {
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		head = prev;
+
+	}
+	
+	/**
 	 * Wrapper of getCountCalc
 	 * @return length of the linkedlist in int
 	 */
