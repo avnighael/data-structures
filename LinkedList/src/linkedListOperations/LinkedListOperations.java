@@ -181,7 +181,6 @@ public class LinkedListOperations {
 			current = next;
 		}
 		head = prev;
-
 	}
 	
 	/**
