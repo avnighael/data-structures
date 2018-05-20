@@ -1,32 +1,43 @@
-import java.util.LinkedList;
 
 public class Stack {
-//	private int size;
+	private static Node head; //head of the list
 	private int top;
-	private LinkedList<Integer> l1;
+	private Node l1;
+	
+	static class Node {
+		int data;
+		Node next;
+		
+		Node (int d) {
+			data = d;
+			next = null;
+		}
+	}
 	
 	public Stack() {
-//		this.size = size;
 		this.setTop(0);
-		this.l1  = new LinkedList<Integer>();
 	}
 	
 	public boolean isEmpty() {
 		return this.peek() == 0;
 	}
 	
-//	public boolean isFull() {
-//		return this.top == this.l1.size();
-//	}
-	
 	public void push(int elem) {
-//		if(isFull()) {
-//			System.out.println("Uh oh! The stack is full. Cannot push more elements.");
-//			return;
-//		}
-		
-		l1.add(elem);
 		this.setTop(this.peek() + 1);
+		Node h = head;
+		Node newNode = new Node(elem);
+		
+		if(h == null) {
+			head =  newNode;
+			return;
+		}
+		
+		while(h.next != null) {
+			h = h.next;
+		}
+
+		h.next = newNode;
+		newNode.next = null;
 	}
 	
 	public void pop() {
@@ -35,18 +46,32 @@ public class Stack {
 			return;
 		}
 		
-		this.l1.remove(peek()-1);
 		this.setTop(this.peek() - 1);
+		Node h = head;
+		
+		while(h.next.next != null) {
+			h = h.next;
+		}
+		
+		h.next = null;
+	}
+	
+	public int getStackElem(int index) {
+		Node h = head;
+		int count = 0;
+		
+		while(h != null && count < index) {
+			h = h.next;
+			count++;
+		}
+		
+		return h.data;
 	}
 	
 	public int size() {
 		return peek();
 	}
 	
-	public int getStackElem(int index) {
-		return this.l1.get(index);
-	}
-
 	public int peek() {
 		return top;
 	}
@@ -54,5 +79,4 @@ public class Stack {
 	public void setTop(int top) {
 		this.top = top;
 	}
-
 }
