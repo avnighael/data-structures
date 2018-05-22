@@ -67,6 +67,10 @@ public class LinkedListMain {
 		System.out.println("After reversing iteratively");
 		linkedList.println();
 		
+		linkedList.reverseRecursively();
+		System.out.println("After reversing recursively");
+		linkedList.println();
+		
 		// Create n number of nodes in linked list, given an array
 		ArrayList<Integer> list=new ArrayList<Integer>();//Creating arraylist  
 		list.add(7);

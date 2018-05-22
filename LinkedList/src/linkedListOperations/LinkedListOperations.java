@@ -183,6 +183,25 @@ public class LinkedListOperations {
 		head = prev;
 	}
 	
+	public static Node reverseRecursively() {
+		return reverseRecursiveUtil(head, null);
+	}
+	
+	public static Node reverseRecursiveUtil(Node cur, Node rest) {
+		if(cur.next == null) {
+			head = cur;
+			cur.next = rest;
+			return null;
+		}
+		
+		Node temp = cur.next;
+		cur.next = rest;
+		
+		reverseRecursiveUtil(temp, cur);
+
+		return head;
+	}
+	
 	/**
 	 * Wrapper of getCountCalc
 	 * @return length of the linkedlist in int
