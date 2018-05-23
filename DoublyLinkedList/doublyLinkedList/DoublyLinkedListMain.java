@@ -11,6 +11,10 @@ public class DoublyLinkedListMain {
 		dl.insertAfter(dl.head.next.next, 4);
 		dl.insertBefore(dl.head.next.next, 0);
 		dl.deleteNode(dl.head.next.next);
+		dl.println(dl.head);
+		
+		System.out.println("Reversed doubly linked list: ");
+		dl.reverseRecursively();
 
 		dl.println(dl.head);
 	}

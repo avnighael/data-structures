@@ -183,10 +183,20 @@ public class LinkedListOperations {
 		head = prev;
 	}
 	
+	/**
+	 * Wrapper for reverseRecursively
+	 * @return
+	 */
 	public static Node reverseRecursively() {
 		return reverseRecursiveUtil(head, null);
 	}
 	
+	/**
+	 * Recever linkedlist recursively
+	 * @param cur
+	 * @param rest
+	 * @return - new head
+	 */
 	public static Node reverseRecursiveUtil(Node cur, Node rest) {
 		if(cur.next == null) {
 			head = cur;
@@ -200,6 +210,22 @@ public class LinkedListOperations {
 		reverseRecursiveUtil(temp, cur);
 
 		return head;
+	}
+	
+	public static boolean searchRecursively(int key) {
+		return searchRecursivelyUtil(head, key);
+	}
+	
+	public static boolean searchRecursivelyUtil(Node cur, int key) {
+		if(cur == null) {
+			return false;
+		}
+		
+		if(cur.data == key) {
+			return true;
+		}
+		
+		return searchRecursivelyUtil(cur.next, key);
 	}
 	
 	/**

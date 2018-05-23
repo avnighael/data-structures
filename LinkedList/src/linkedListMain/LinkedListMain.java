@@ -71,6 +71,9 @@ public class LinkedListMain {
 		System.out.println("After reversing recursively");
 		linkedList.println();
 		
+		System.out.println("Is 4 present in the linked list? " + linkedList.searchRecursively(4));
+		System.out.println("Is 14 present in the linked list? " + linkedList.searchRecursively(14));
+		
 		// Create n number of nodes in linked list, given an array
 		ArrayList<Integer> list=new ArrayList<Integer>();//Creating arraylist  
 		list.add(7);

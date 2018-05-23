@@ -120,5 +120,38 @@ public class DoublyLinkedListOperations {
 		return;
 		
 	}
+	
+	/**
+	 * Wrapper for reverseRecursively
+	 * @return head of the reversed doubly linked list
+	 */
+	public static Node reverseRecursively() {
+		return reverseRecursivelyUtil(head, null);
+	}
+	
+	/**
+	 * Reverses the doubly linked list recursively
+	 * @param cur - current head node
+	 * @param rest - next of the current node
+	 * @return head node of the reversed doubly linked list
+	 */
+	public static Node reverseRecursivelyUtil(Node cur, Node rest) {
+		if(cur.next == null) {
+			head = cur;
+			cur.next = rest;
+			rest.prev = cur;
+			return null;
+		}
+		
+		Node temp = cur.next;
+		cur.next = rest;
+		
+		if(cur.prev != null) {
+			rest.prev = cur;
+		}
+			
+		reverseRecursivelyUtil(temp, cur);
+		return head;
+	}
 
 }
