@@ -12,14 +12,6 @@ public class StackMain {
 		}
 	}
 	
-	public static void printStack(int size) {
-		System.out.println("The elements of stack:");
-		int index = 0;
-		
-		while(index < size) {
-			System.out.println(stack2.getStackElem(index++));
-		}
-	}
 
 	public static void main(String[] args) {
 		System.out.println("---------------- Inbuilt Stack -------------------");
@@ -49,17 +41,15 @@ public class StackMain {
 		
 		System.out.println("The size of the stack after push operations is: " + stack2.size());
 		System.out.println("The top element is: " + stack2.peek());
-		printStack(stack2.size());
+		stack2.printStack();
 				
 		stack2.pop();
 		stack2.pop();
 		stack2.push(5);
 		System.out.println("The size of stack after pop operations is: " + stack2.size());
 		
-		printStack(stack2.size());
+		stack2.printStack();
 		
-		
-
 	}
 
 }

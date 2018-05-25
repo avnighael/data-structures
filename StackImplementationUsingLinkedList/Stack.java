@@ -1,7 +1,7 @@
 
 public class Stack {
 	private static Node head; //head of the list
-	private int top;
+	private Node top;
 	private Node l1;
 	
 	static class Node {
@@ -15,29 +15,25 @@ public class Stack {
 	}
 	
 	public Stack() {
-		this.setTop(0);
+		this.setTop(null);
 	}
 	
 	public boolean isEmpty() {
-		return this.peek() == 0;
+		return top == null;
 	}
 	
 	public void push(int elem) {
-		this.setTop(this.peek() + 1);
-		Node h = head;
+		Node curTop = top;
 		Node newNode = new Node(elem);
-		
-		if(h == null) {
-			head =  newNode;
+
+		if(curTop == null) {
+			head = top = newNode;
 			return;
 		}
-		
-		while(h.next != null) {
-			h = h.next;
-		}
 
-		h.next = newNode;
-		newNode.next = null;
+		newNode.next = curTop;
+//		newNode.next = null;
+		top = newNode;
 	}
 	
 	public void pop() {
@@ -45,38 +41,44 @@ public class Stack {
 			System.out.println("The stack is empty");
 			return;
 		}
+
+		 Node curTop = top;
+		 top = curTop.next;
+		 curTop = null;
 		
-		this.setTop(this.peek() - 1);
-		Node h = head;
-		
-		while(h.next.next != null) {
-			h = h.next;
-		}
-		
-		h.next = null;
 	}
 	
-	public int getStackElem(int index) {
-		Node h = head;
-		int count = 0;
+	public void printStack() {
+		System.out.println("The elements of stack from top:");
+		Node curTop = top;
 		
-		while(h != null && count < index) {
-			h = h.next;
-			count++;
+		while(curTop != null) {
+			System.out.println(curTop.data);
+			curTop = curTop.next;			
 		}
-		
-		return h.data;
 	}
 	
 	public int size() {
-		return peek();
+		return sizeCalc(top);
 	}
 	
+	public int sizeCalc(Node h) {
+		if(h == null) {
+			return 0;
+		}
+		return 1 + sizeCalc(h.next);
+	}
+	
+	
 	public int peek() {
-		return top;
+		return top.data;
 	}
 
-	public void setTop(int top) {
+	public void setTop(Node top) {
 		this.top = top;
+	}
+	
+	public Node getTop() {
+		return top;
 	}
 }
