@@ -49,6 +49,14 @@ public class QueueUsingStack {
 		return first;
 	}
 	
+	public void reverse() {
+		if(!this.s1.isEmpty()) {
+			int temp = this.dequeue();
+			reverse();
+			this.enqueue(temp);
+		}
+	}
+	
 	/**
 	 * Gets the last element of the queue
 	 * @return - int last element
@@ -82,6 +90,7 @@ public class QueueUsingStack {
 		this.s1.push(temp);
 		return first;
 	}
+
 	
 
 	public static void main(String[] args) {
@@ -90,6 +99,9 @@ public class QueueUsingStack {
 		q.enqueue(20);
 		q.enqueue(30);
 		q.enqueue(40);
+			
+		q.reverse();
+		
 		System.out.println(q.getFront());
 		System.out.println(q.getRear());
 		System.out.println(q.dequeue());
