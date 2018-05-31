@@ -1,10 +1,4 @@
-/linkedListInsertion/
-/linkedListTraversal/
-/linkedListOperations/
 /linkedListMain/
-/Stack.class
-/StackMain.class
-/StackInbuilt.class
-/Stack$Node.class
-/doublyLinkedListOperations.class
-/doublyLinkedList/
+/linkedListOperations/
+/queueOperations/
+/queueImplementation/
