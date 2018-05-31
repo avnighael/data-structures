@@ -22,6 +22,12 @@ public class QueueUsingStack {
 		this.s1.push(data);
 	}
 	
+//	 deQueue:
+//	  1) If stack1 is empty then error.
+//	  2) If stack1 has only one element then return it.
+//	  3) Recursively pop everything from the stack1, store the popped item 
+//	    in a variable temp,  push the temp back to stack1 and return temp
+	
 	/**
 	 * Pops the first element from the queue
 	 * @return - int first element of the queue
@@ -75,7 +81,6 @@ public class QueueUsingStack {
 		int first =  getFront();
 		this.s1.push(temp);
 		return first;
-
 	}
 	
 
