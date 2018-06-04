@@ -1,7 +1,7 @@
 package binarySearch;
 
 // NOTE for me: I did a mistake of forgetting about adding stopping condition for recursion
-// i.e. if element is not found, return false and for this the stopping recursion conditon 
+// i.e. if element is not found, return false and for this the stopping recursion condition 
 // is if(high >= low)
 
 public class BinarySearch {
@@ -38,6 +38,7 @@ public class BinarySearch {
 		return false;
 	}
 	public static void main(String[] args) {
+		// for binary search, array needs to be in sorted fashion
 		int arr[] = {10, 20, 30, 40, 50, 60, 70, 80};
 		int x = 60;
 		System.out.println(binarySearch(arr, x, 0, arr.length - 1));
