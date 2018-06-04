@@ -46,6 +46,7 @@ public class Stack {
 	public int size() {
 		return this.s.length;
 	}
+	
 	/**
 	 * Returns whether the stack is empty or not
 	 * @return - true if stack is empty, false otherwise

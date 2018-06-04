@@ -25,7 +25,7 @@ public class DequeueOperations {
 	 */
 	public void insertFront(int data) {
 		QNode newNode = new QNode(data);
-		
+
 		if(this.isEmpty()) {
 			this.setFront(newNode);
 			this.setRear(newNode);
