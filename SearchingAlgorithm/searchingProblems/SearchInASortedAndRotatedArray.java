@@ -1,3 +1,17 @@
+/**
+ * NOTE:
+ * 1) Find middle point mid = (l + h)/2
+2) If key is present at middle point, return mid.
+3) Else If arr[l..mid] is sorted
+    a) If key to be searched lies in range from arr[l]
+       to arr[mid], recur for arr[l..mid].
+    b) Else recur for arr[mid+1..r]
+4) Else (arr[mid+1..r] must be sorted)
+    a) If key to be searched lies in range from arr[mid+1]
+       to arr[r], recur for arr[mid+1..r].
+    b) Else recur for arr[l..mid] 
+ */
+
 package searchingProblems;
 
 public class SearchInASortedAndRotatedArray {
@@ -10,51 +24,39 @@ public class SearchInASortedAndRotatedArray {
 	 * @param high - end point of searching range in array
 	 * @return - true if x is present in array, false otherwise
 	 */
-	public static boolean search(int arr[], int x, int low, int high, int mid) {
-		if(high >= low) {
+	public static boolean search(int arr[], int x, int low, int high) {
 			
-			// found the element
-			if(arr[mid] == x) {
-				return true;
+		if(low > high) {
+			return false;
+			
+		}
+		
+		int mid = low + (high - low) / 2;
+		
+		if(arr[mid] == x) {
+			return true;
+		}
+		
+		if(arr[low] <= arr[mid]) {
+			if(arr[low] <= x && x <= arr[mid]) {
+				return search(arr, x, low, mid-1);
+			} else {
+				return search(arr, x, mid+1, high);
 			}
-			
-			// If element is greater than mid
-			// then element can be present in right subarray
-			if((arr[mid] < x) && (x < arr[high])) {
-				int newLow = mid + 1;
-				mid = newLow + (high - newLow) / 2;
-				return search(arr, x, newLow, high, mid);
-			}
-			
-			// If element is less than mid
-			// then element can be present in left subarray
-			if((arr[low] < x) && (x < arr[mid - 1])) {
-				int newHigh = mid - 1;
-				mid = low + (newHigh - low) / 2;
-				return search(arr, x, low, newHigh, mid);
+		} else {
+			if(arr[mid] <= x && x <= arr[high]) {
+				return search(arr, x, mid+1, high);
+			} else {
+				return search(arr, x, low, mid-1);
 			}
 		}	
-		return false;
-	}
-	
-	public static int getMid(int[] arr) {
-		int min = arr[0];
-		int minIndex = 0;
-		for(int i=0; i<arr.length; i++) {
-			if(arr[i] < min) {
-				min = arr[i];
-				minIndex = i;
-				break;
-			}
-		}
-		return minIndex;
+		
 	}
 	
 	public static void main(String[] args) {
 		int[] arr = {5, 6, 7, 8, 9, 10, 1, 2, 3};
-		int mid = getMid(arr);
 		
-		System.out.println(search(arr, 0, 0, arr.length - 1, mid));
+		System.out.println(search(arr, 60, 0, arr.length - 1));
 	}
 
 }
