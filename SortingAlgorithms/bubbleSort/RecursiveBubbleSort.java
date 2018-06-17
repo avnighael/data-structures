@@ -1,38 +1,35 @@
 package bubbleSort;
 
-/**
- * Bubble Sort
- * Worst and Average Time Complexity: O(n^2)
- * Best Time Complexity: O(n)
- * Auxiliary Space: O(1)
- * Sorting In place: Yes
- * Stable: Yes
- * @author Avni.Ghael
- *
- */
-public class BubbleSort {
+public class RecursiveBubbleSort {
 
 	/**
 	 * Sort an array using Bubble Sort
 	 * @param arr - array to be sorted
 	 */
 	public void sort(int[] arr) {
-		Boolean isSwapped;
-		for(int i = 0; i < arr.length - 1; i++) {
-			isSwapped = false;
-			for(int j=0; j < arr.length - i - 1; j++) {
-				if(arr[j] > arr[j+1]) {
-					isSwapped = true;
-					int temp = arr[j];
-					arr[j] = arr[j+1];
-					arr[j+1] = temp;
-				}
-			}
-			if(!isSwapped) {
-				break;
-			}
+		int n = arr.length;
+		sortUtil(arr, n);
+	}
+	
+	/**
+	 * Utility to bubble sort an array
+	 * @param arr - array to be sorted
+	 * @param n - number of elements in an array to be sorted
+	 */
+	public void sortUtil(int[] arr, int n) {		
+		if(n == 1) {
+			return;
 		}
+	
+		for(int j=0; j < n - 1; j++) {
+			if(arr[j] > arr[j+1]) {
+				int temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}	
 		
+		sortUtil(arr, n-1);
 	}
 	
 	/**
@@ -46,7 +43,7 @@ public class BubbleSort {
 	}
 	
 	public static void main(String[] args) {
-		BubbleSort obj = new BubbleSort();
+		RecursiveBubbleSort obj = new RecursiveBubbleSort();
 		int[] arr = {5,1,4,2,8};
 		System.out.println("Array before sorting:");
 		obj.printArray(arr);
