@@ -1,5 +1,13 @@
 package bubbleSort;
 
+/**
+ * If we take a closer look at Bubble Sort algorithm, 
+ * we can notice that in first pass, we move largest element to end
+ * (Assuming sorting in increasing order). In second pass, 
+ * we move second largest element to second last position and so on.
+ * @author Avni.Ghael
+ */
+
 public class RecursiveBubbleSort {
 
 	/**
