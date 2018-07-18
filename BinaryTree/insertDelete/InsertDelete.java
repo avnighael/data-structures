@@ -72,6 +72,74 @@ public class InsertDelete {
 			}
 		}
 	}
+	
+	/**
+	 * Deletes a given node from a Binary Tree
+	 * @param temp - root of the tree
+	 * @param key - key node to be deleted
+	 */
+	public static void deletion(Node temp, int key) {
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(temp);
+		
+		Node toDelNode = null;
+		
+		while(!q.isEmpty()) {
+			temp = q.peek();
+			q.remove();
+			
+			if(temp.key == key) {
+				toDelNode = temp;
+			}
+			
+			if(temp.left != null) {
+				q.add(temp.left);
+			}
+			
+			if(temp.right != null) {
+				q.add(temp.right);
+			}
+		}
+		
+		int x = temp.key;
+		deleteDeepest(root, temp);
+		toDelNode.key = x;
+	}
+	
+	/**
+	 * Deletes the given deepest node in binary tree
+	 * @param root - root of the binary tree
+	 * @param node - deepest node to be deleted
+	 */
+	static void deleteDeepest(Node root, Node node) {
+		Queue<Node> q = new LinkedList<Node>();
+		q.add(root);
+		
+		Node tempnode;
+		
+		while(!q.isEmpty()) {
+			tempnode = q.peek();
+			q.remove();
+			
+			if(tempnode.right != null) {
+				if(tempnode.right == node) {
+					tempnode.right = null;
+					return;
+				} else {
+					q.add(tempnode.right);
+				}
+			}
+			
+			if(tempnode.left != null) {
+				if(tempnode.left == node) {
+					tempnode.left = null;
+					return;
+				} else {
+					q.add(tempnode.left);
+				}
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 		root = new Node(10);
@@ -88,6 +156,11 @@ public class InsertDelete {
         insert(root, key);
         
         System.out.println("Tree nodes after insertion: ");
+        printInorder(root);
+
+        deletion(root, key);
+        
+        System.out.println("Tree nodes after deletion: ");
         printInorder(root);
 
 	}
